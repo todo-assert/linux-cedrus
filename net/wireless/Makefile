@@ -23,6 +23,9 @@ ifneq ($(CONFIG_CFG80211_EXTRA_REGDB_KEYDIR),)
 cfg80211-y += extra-certs.o
 endif
 
+obj-$(CONFIG_CFG80211) += $(cfg80211-y)
+
+
 $(obj)/shipped-certs.c: $(wildcard $(srctree)/$(src)/certs/*.hex)
 	@$(kecho) "  GEN     $@"
 	@(echo '#include "reg.h"'; \
